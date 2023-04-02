@@ -10,6 +10,8 @@ import (
 	"github.com/shkh/lastfm-go/lastfm"
 )
 
+const Version string = "v0.1.2"
+
 type Config struct {
 	Username string `json:"username"`
 	Password string `json:"password"`
@@ -18,6 +20,8 @@ type Config struct {
 }
 
 func main() {
+	log.Printf("[SCROBBLEBUDDY] You are using %s.\n", Version)
+
 	// Get user to listen along with
 	if len(os.Args) < 2 {
 		log.Fatalln("[SCROBBLEBUDDY] You need to specify a user to scrobble alongside. The command should look similar to the below, replacing `bbcradio1` with the user you want to scrobble with.\n\nscrobblebuddy bbcradio1")
