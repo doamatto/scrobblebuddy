@@ -5,5 +5,4 @@ build:
 	$(GOBIN) build -o scrobblebuddy main.go
 
 test:
-	$(GOBIN) build -o scrobblebuddy main.go
-	./scrobblebuddy bbcradio1
+	$(GOBIN) run main.go
