@@ -44,12 +44,6 @@ func main() {
 		log.Fatalf("[SCROBBLEBUDDY] Failed to read configuration file %s. Error to follow:\n\n%s", confFileLoc, err)
 	}
 
-	// Check if credentials are missing
-	// TODO: find better method
-	if config.Username == "" || config.Password == "" || config.APIKey == "" || config.APISecret == "" {
-		log.Fatalf("[SCROBBLEBUDDY] One or more of your credentials are empty. This must be remedied for ScrobbleBuddy to work. You can remedy this in your configuration file located: %s", confFileLoc)
-	}
-
 	// Authenticate with Last.fm
 	api := lastfm.New(config.APIKey, config.APISecret)
 	err = api.Login(config.Username, config.Password)
