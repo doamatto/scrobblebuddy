@@ -56,7 +56,7 @@ func main() {
 	if err != nil {
 		log.Fatalf("[SCROBBLEBUDDY] Failed to authenticate as %s. Error to follow:\n\n%s", config.Username, err)
 	}
-	log.Printf("[SCROBBLEBUDDY] Authenticated as %s.", config.Username)
+	log.Printf("[SCROBBLEBUDDY] Authenticated as %s.\n", config.Username)
 
 	// Start loop for listen along
 	err = scrobblealong(api, user, config)
