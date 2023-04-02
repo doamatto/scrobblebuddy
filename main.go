@@ -82,6 +82,7 @@ func scrobblealong(api *lastfm.Api, user string, conf Config) (err error) {
 			"user": conf.Username,
 			"limit": 1, // we don't need the default 50
 		})
+		if err != nil { return err }
 		if data.Tracks[0].Name == curTrack.Tracks[0].Name {
 			// Timeout for 30 seconds
 			time.Sleep(30 * time.Second)
@@ -103,6 +104,7 @@ func scrobblealong(api *lastfm.Api, user string, conf Config) (err error) {
 			"track": data.Tracks[0].Name,
 			"timestamp": time.Now().Unix(),
 		})
+		if err != nil { return err }
 
 		// Timeout for 30 seconds
 		time.Sleep(30 * time.Second)
