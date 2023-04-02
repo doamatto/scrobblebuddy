@@ -74,10 +74,11 @@ func scrobblealong(api *lastfm.Api, user string, conf Config) (err error) {
 		// Check if song is/was being scrobbled now
 		curTrack, err := api.User.GetRecentTracks(lastfm.P{
 			"user": conf.Username,
-			"limit": 1, // we don't need the default 50
+			"limit": 2, // we get the last 2 tracks so that we can make sure we
+						// aren't comparing against the currently playing track
 		})
 		if err != nil { return err }
-		if data.Tracks[0].Name == curTrack.Tracks[0].Name && data.Tracks[0].Artist.Name == curTrack.Tracks[0].Artist.Name {
+		if data.Tracks[0].Name == curTrack.Tracks[1].Name && data.Tracks[0].Artist.Name == curTrack.Tracks[1].Artist.Name {
 			// Timeout for 30 seconds
 			time.Sleep(30 * time.Second)
 
