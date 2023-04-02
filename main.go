@@ -107,6 +107,13 @@ func scrobblealong(api *lastfm.Api, user string, conf Config) (err error) {
 		// Rinse and repeat
 		err = scrobblealong(api, user, conf)
 		if err != nil {	return err }
+	} else {
+		// Timeout for 30 seconds
+		time.Sleep(30 * time.Second)
+
+		// Rinse and repeat
+		err = scrobblealong(api, user, conf)
+		if err != nil {	return err }
 	}
 	return nil // this should never happen
 }
