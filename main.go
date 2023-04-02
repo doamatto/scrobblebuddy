@@ -59,6 +59,8 @@ func main() {
 	}
 }
 
+var current_song, current_artist string
+
 // We use a seperate function so that we can
 // loop the function without having to duplicate a lot of code.
 func scrobblealong(api *lastfm.Api, user string, conf Config) (err error) {
@@ -78,7 +80,8 @@ func scrobblealong(api *lastfm.Api, user string, conf Config) (err error) {
 						// aren't comparing against the currently playing track
 		})
 		if err != nil { return err }
-		if data.Tracks[0].Name == curTrack.Tracks[1].Name && data.Tracks[0].Artist.Name == curTrack.Tracks[1].Artist.Name {
+		if (data.Tracks[0].Name == current_song && data.Tracks[0].Artist.Name == current_artist) ||
+		(data.Tracks[0].Name == curTrack.Tracks[1].Name && data.Tracks[0].Artist.Name == curTrack.Tracks[1].Artist.Name) {
 			// Timeout for 30 seconds
 			time.Sleep(30 * time.Second)
 
@@ -100,6 +103,8 @@ func scrobblealong(api *lastfm.Api, user string, conf Config) (err error) {
 			"timestamp": time.Now().Unix(),
 		})
 		if err != nil { return err }
+		current_song = data.Tracks[0].Name
+		current_artist = data.Tracks[0].Artist.Name
 
 		// Timeout for 30 seconds
 		time.Sleep(30 * time.Second)
