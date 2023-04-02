@@ -87,8 +87,8 @@ func scrobblealong(api *lastfm.Api, user string, conf Config) (err error) {
 			if err != nil {	return err }	
 		}
 
-		log.Printf("[SCROBBLEBUDDY] Scrobbling %s by %s...", data.Tracks[0].Name, data.Tracks[0].Artist.Name)
 		// Scrobble the song
+		log.Printf("[SCROBBLEBUDDY] Scrobbling %s by %s...", data.Tracks[0].Name, data.Tracks[0].Artist.Name)
 		_, err = api.Track.UpdateNowPlaying(lastfm.P{
 			"artist": data.Tracks[0].Artist.Name,
 			"track": data.Tracks[0].Name,
