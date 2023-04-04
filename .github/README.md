@@ -1,8 +1,13 @@
+| :exclamation:  [This repository is now maintained on Sourcehut here.](https://git.sr.ht/~maatt/scrobblebuddy)   |
+|-----------------------------------------------------------------------------------------------------------------|
+
+---
+
 Scrobble Buddy is a simple tool to let you scrobble with other Last.fm users.
 
 ## Building
 0. Install [Golang](https://golang.org/dl)
-1. Clone this repository (`git clone https://github.com/doamatto/scrobblebuddy.git`)
+1. Clone this repository (`git clone https://git.sr.ht/~maatt/scrobblebuddy`)
 2. Build this app (`go build -o scrobblebuddy main.go`)
 
 You can now use `scrobblebuddy`
@@ -18,4 +23,4 @@ Configuration options are within `.config/scrobblebuddy.json` (or wherever `XDG_
 ## Acknowledgements
 This program is licensed under the 3-Clause BSD license. A copy of this license is in the `LICENSE` file in the root of this repository.
 
-This program uses [Kohei Shitaune](https://github.com/shkh)'s [lastfm-go library](https://github.com/shkh/lastfm-go/blob/89a801c244e0e5c320fcd4416e7a30520dc8a233/lastfm/lastfm.go) (MIT). This program was inspiried by [Amr Hassan](https://github.com/amrhassan)'s [bbcscrobbler program](https://github.com/amrhassan/bbcscrobbler).
+This program uses [Kohei Shitaune](https://github.com/shkh)'s [lastfm-go library](https://github.com/shkh/lastfm-go) (MIT). This program was inspiried by [Amr Hassan](https://github.com/amrhassan)'s [bbcscrobbler program](https://github.com/amrhassan/bbcscrobbler).
